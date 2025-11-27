@@ -67,8 +67,8 @@ class JPAUnitTestCase {
 
         Organization ou3 = entityManager.find(Organization.class, "ou_3");
 
-        Assertions.assertTrue(ou3.getParentOrganization()==null, "Parent of ou_3 exists");
-        Assertions.assertTrue(ou3.getPredecessorOrganizations().size()==0, "Predecessor of ou_3 is not empty");
+        Assertions.assertTrue(ou3.getParentOrganization()==null, "Parent of ou_3 is null");
+        Assertions.assertTrue(ou3.getPredecessorOrganizations().size()==0, "Predecessor of ou_3 is empty");
 
         entityManager.getTransaction().commit();
         entityManager.close();

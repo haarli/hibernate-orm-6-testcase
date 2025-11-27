@@ -53,9 +53,9 @@ class JPAUnitTestCase {
         entityManager.close();
 
         //ou 2 must have no parent!
-        Assertions.assertTrue(ou3.getParentOrganization()==null, "Parent of ou_3 exists");
+        Assertions.assertTrue(ou3.getParentOrganization()==null, "Parent of ou_3 is null");
 
-        Assertions.assertTrue(ou3.getPredecessorOrganizations().size()==0, "Predecessor of ou_3 is not empty");
+        Assertions.assertTrue(ou3.getPredecessorOrganizations().size()==0, "Predecessors of ou_3 is empty");
 
 	}
 

@@ -46,7 +46,6 @@ class JPAUnitTestCase {
         entityManager.getTransaction().begin();
 
         User user1 = entityManager.find(User.class, "user_1");
-
         Organization ou3 = entityManager.find(Organization.class, "ou_3");
 
         entityManager.getTransaction().commit();
@@ -54,7 +53,6 @@ class JPAUnitTestCase {
 
         //ou 3 must have no parent!
         Assertions.assertTrue(ou3.getParentOrganization()==null, "Parent of ou_3 is null");
-
         Assertions.assertTrue(ou3.getPredecessorOrganizations().size()==0, "Predecessors of ou_3 is empty");
 
 	}
@@ -67,11 +65,12 @@ class JPAUnitTestCase {
 
         Organization ou3 = entityManager.find(Organization.class, "ou_3");
 
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
         Assertions.assertTrue(ou3.getParentOrganization()==null, "Parent of ou_3 is null");
         Assertions.assertTrue(ou3.getPredecessorOrganizations().size()==0, "Predecessor of ou_3 is empty");
 
-        entityManager.getTransaction().commit();
-        entityManager.close();
 
     }
 

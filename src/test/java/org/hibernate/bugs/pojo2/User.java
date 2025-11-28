@@ -9,9 +9,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "user_account")
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "user")
-//@TypeDef(name = "GrantVOListJsonUserType", typeClass = GrantVOListJsonUserType.class)
 public class User extends Basic {
 
 
